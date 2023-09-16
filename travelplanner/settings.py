@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'UserApp',
     'LocationApp',
     'PackageApp',
+    'HotelApp',
+    'BookingApp'
 ]
 
 MIDDLEWARE = [
