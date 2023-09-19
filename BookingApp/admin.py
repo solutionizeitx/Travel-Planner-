@@ -1,11 +1,14 @@
 from django.contrib import admin
 
+from BookingApp.models import Booking
+
+
 # Register your models here.
 class BookingAdmin(admin.ModelAdmin):
 
-    list_display = ["Hotel","Hotel_Id","Hotel_name","Package_name","Package_Id","Package_price","Hotel_price","Total_price","Booking_date_from","Booking_date_to","Number_of_People","is_paid","Booking_status"]
-    search_fields = ["name"]
+   # list_display = ["hotel","hotel_id","hotel_name","package_name","package_price","hotel_price","package_id","total_price","booking_date_from","booking_date_to","number_of_people","is_paid","booking_status"]
+    search_fields = ["hotel_name"]
     pass
 
 
-admin.site.register(Hotel,HotelAdmin)
+admin.site.register(Booking,BookingAdmin)
