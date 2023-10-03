@@ -18,6 +18,23 @@ def ResponseFunction(status, message, data):
         DATA: data
     })
 
+    # Sample output structure
+    # {
+    #     "status": True,
+    #     "message": "Data saved",
+    #     "data": {
+    #         "id": 1,
+    #         "name": "Hotel 1",
+    #         "is_active": true,
+    #         "rate": "100.00",
+    #         "actual_price": "100.00",
+    #         "description": "Hotel 1",
+    #         "location": 1,
+    #         "type": 1,
+    #         "address": "Hotel 1"
+    #     }
+    # }
+
 
 def ValidateRequest(required, data_dic, **kwargs):
     errors = []
