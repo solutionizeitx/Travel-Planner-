@@ -12,10 +12,10 @@ class HotelAPI(ListAPIView):
     # permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
-        pagination = self.request.GET.get('pagination', '1')
-        if pagination == '0':
-            print("Pagination None")
-            self.pagination_class = None
+        # pagination = self.request.GET.get('pagination', '1')
+        # if pagination == '0':
+        #     print("Pagination None")
+        #     self.pagination_class = None
 
         id = self.request.GET.get('id', '')
         name = self.request.GET.get('name', '')
