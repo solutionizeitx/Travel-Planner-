@@ -9,7 +9,7 @@ class Hoteltype(models.Model):
     rate=models.DecimalField(max_digits=20, decimal_places=2)
 
 class Hotel(models.Model):
-    name = models.CharField(max_length=30, unique=True)
+    name = models.CharField(max_length=30, unique=True) # unique ?
     is_active = models.BooleanField(default=False)
     rate = models.DecimalField(max_digits=20, decimal_places=2,null=True,blank=True)
     actual_price=models.DecimalField(max_digits=20, decimal_places=2,null=True,blank=True)
