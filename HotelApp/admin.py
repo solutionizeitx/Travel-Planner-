@@ -12,7 +12,7 @@ class HoteltypeAdmin(admin.ModelAdmin):
     pass
 
 class HotelAdmin(admin.ModelAdmin):
-    list_filter = ["is_active"]
+    list_filter = ["is_active",'rate']
     list_display = ["name","rate","is_active","actual_price","description","location","type"]
     search_fields = ["name","location"]
     pass

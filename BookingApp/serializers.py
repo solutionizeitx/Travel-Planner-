@@ -8,4 +8,4 @@ class  BookingSerializer(DynamicFieldsModelSerializer):
 class  BookingDropdownSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Booking
-        fields = ['id','name']
+        fields = ['id','packageName','hotel_name','typeName','booking_date_to','booking_date_from']

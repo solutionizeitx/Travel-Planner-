@@ -3,7 +3,7 @@ from HotelApp.serializers import *
 from LocationApp.serializers import LocationSerializer, LocationDropdownSerializer
 from travelplanner.common_functions import MESSAGE, STATUS, ResponseFunction, ValidateRequest, printLineNo
 from travelplanner.global_imports import *
-from HotelApp.models import *
+from LocationApp.models import *
 
 
 class LocationAPI(ListAPIView):
@@ -20,6 +20,7 @@ class LocationAPI(ListAPIView):
 
         id = self.request.GET.get('id', '')
         name = self.request.GET.get('name', '')
+        is_active = self.request.GET.get('is_active', '')
         is_dropdown = self.request.GET.get('is_dropdown', False)
 
         if is_dropdown=='1':
@@ -28,9 +29,12 @@ class LocationAPI(ListAPIView):
 
         qs = Location.objects.all()
 
-        if id: qs = qs.filter(id=id) # check and explain
+        if id: qs = qs.filter(id=id)
 
-        if name: qs = qs.filter(name__icontains=name) # check and explain
+        if name: qs = qs.filter(name__icontains=name)
+        print("type of is_active=",type(is_active))
+        if is_active: qs = qs.filter(is_active=is_active)
+
 
         return qs
 

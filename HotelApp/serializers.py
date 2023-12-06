@@ -12,4 +12,4 @@ class  HotelSerializer(DynamicFieldsModelSerializer):
 class  HotelDropdownSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Hotel
-        fields = ['id','name']
+        fields = ['id','name','is_active']

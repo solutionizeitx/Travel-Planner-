@@ -1,3 +1,4 @@
+
 from django.shortcuts import render
 from HotelApp.serializers import *
 from travelplanner.common_functions import MESSAGE, STATUS, ResponseFunction, ValidateRequest, printLineNo
@@ -19,7 +20,15 @@ class HotelAPI(ListAPIView):
 
         id = self.request.GET.get('id', '')
         name = self.request.GET.get('name', '')
+        rate = self.request.GET.get('rate', '')
+        location = self.request.GET.get('location', '')
+        type = self.request.GET.get('type', '')
+        is_active = self.request.GET.get('is_active', '')
         is_dropdown = self.request.GET.get('is_dropdown', False)
+
+
+
+
 
         if is_dropdown=='1':
             print("Drop down get request")
@@ -27,9 +36,15 @@ class HotelAPI(ListAPIView):
 
         qs = Hotel.objects.all()
 
-        if id: qs = qs.filter(id=id) # check and explain
+       # if id: qs = qs.filter(id=id)
 
-        if name: qs = qs.filter(name__icontains=name) # check and explain
+        if name: qs = qs.filter(name__icontains=name)
+        if rate: qs = qs.filter(rate=rate)
+        #if id: qs = qs.filter(location=Location.objects.get(id=id))
+        if id: qs = qs.filter(type=PackageType.objects.get(id=id))
+        if is_active: qs = qs.filter(is_active=is_active)
+
+
 
         return qs
 
